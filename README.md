@@ -1,6 +1,6 @@
 # Repo Meister Workflow
 
-**Environment:** Java/Maven
+**Environment:** NodeJS/Yarn
 
 **Description:** Build and run tests.
 
@@ -10,9 +10,9 @@
 
 ## Input parameters
 
-| Name         | Description | Required | Type   | Default |
-| ------------ | ----------- | -------- | ------ | ------- |
-| java-version | JDK version | false    | string | 17      |
+| Name         | Description    | Required | Type   | Default |
+| ------------ | -------------- | -------- | ------ | ------- |
+| node-version | NodeJS version | false    | string | 18.x    |
 
 ## Output parameters
 
@@ -31,10 +31,10 @@ on:
 
 jobs:
   ci:
-    uses: repo-meister-actions/java-maven/.github/workflows/ci.yml@main
+    uses: repo-meister-actions/nodejs-yarn/.github/workflows/ci.yml@main
 ```
 
-Example repository using this workflow: [repo-meister-actions/java-maven-example](https://github.com/repo-meister-actions/java-maven-example/blob/main/.github/workflows/main.yml)
+Example repository using this workflow: [repo-meister-actions/nodejs-yarn-example](https://github.com/repo-meister-actions/nodejs-yarn-example/blob/main/.github/workflows/main.yml)
 
 ## Action usage example
 
@@ -51,7 +51,7 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: repo-meister-actions/java-maven@main
+      - uses: repo-meister-actions/nodejs-yarn@main
 ```
 
-Example repository using this action: [repo-meister-actions/java-maven-example](https://github.com/repo-meister-actions/java-maven-example/blob/main/.github/workflows/main-action.yml)
+Example repository using this action: [repo-meister-actions/nodejs-yarn-example](https://github.com/repo-meister-actions/nodejs-yarn-example/blob/main/.github/workflows/main-action.yml)

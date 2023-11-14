@@ -3,25 +3,27 @@ name: "Continuous Integration"
 on:
   workflow_call:
     inputs:
-      java-version:
+      node-version:
         required: false
         type: string
-        default: "17"
+        default: "18.x"
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      CI: true
     steps:
       - name: "Checkout sources"
         uses: actions/checkout@v4
 
-      - name: "Set up JDK"
-        uses: actions/setup-java@v3
+      - name: "Setup NodeJS"
+        uses: actions/setup-node@v3
         with:
-          distribution: "temurin"
-          java-version: ${{ inputs.java-version }}
-          cache: maven
+          node-version: ${{ inputs.node-version }}
 
-      - name: "Build and run tests"
-        run: mvn install
+      - name: "Install dependencies"
+        run: yarn install
 
+      - name: "Run tests"
+        run: yarn test

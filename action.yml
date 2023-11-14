@@ -3,10 +3,10 @@ name: "Continuous Integration"
 description: "Build and run tests."
 
 inputs:
-  java-version:
+  node-version:
     required: false
     type: string
-    default: "17"
+    default: "18.x"
 
 runs:
   using: "composite"
@@ -14,13 +14,16 @@ runs:
     - name: "Checkout sources"
       uses: actions/checkout@v4
 
-    - name: "Set up JDK"
-      uses: actions/setup-java@v3
+    - name: "Setup NodeJS"
+      uses: actions/setup-node@v3
       with:
-        distribution: "temurin"
-        java-version: ${{ inputs.java-version }}
-        cache: maven
+        node-version: ${{ inputs.node-version }}
 
-    - name: "Build and run tests"
-      run: mvn install
+    - name: "Install dependencies"
+      run: yarn install
       shell: bash
+
+    - name: "Run tests"
+      run: yarn test
+      shell: bash
+
