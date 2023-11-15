@@ -4,9 +4,9 @@
 
 **Description:** Build and run tests.
 
-**Workflow file:** [ci.yml](.github/workflows/ci.yml)
+**Workflow file:** [`ci.yml`](.github/workflows/ci.yml)
 
-**Action file:**: [action.yml](action.yml)
+**Action file:**: [`action.yml`](action.yml)
 
 ## Input parameters
 
